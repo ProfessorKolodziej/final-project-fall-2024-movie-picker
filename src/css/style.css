@@ -6,8 +6,65 @@ primary color variable below.
 */
 
 :root {
-	--color-primary: blue;
-	--color-secondary: #c00;
+	--color-primary: #2E2828;
+	--color-secondary: #2E2828;
+}
+
+body {
+	background: hsla(0, 44%, 57%, 1);
+	background: linear-gradient(90deg, hsla(0, 44%, 57%, 1) 0%, hsla(345, 43%, 54%, 1) 100%);
+}
+
+/* Navbar Styling */
+.navbar {
+	background-color: #CDB450;
+	color: #2E2828;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 20px;
+}
+
+/* Navigation links */
+.nav-links {
+	display: flex;
+	gap: 10px;
+}
+
+.nav-links a {
+	text-decoration: none;
+	color: #2E2828;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+/* Black line between items */
+.nav-links a:not(:last-child) {
+	border-right: 1.5px solid #2E2828;
+	padding-right: 10px;
+}
+
+.nav-links a:hover {
+	color: white;
+	background-color: transparent;
+}
+
+button {
+	display: block;
+	margin: 30px auto;
+	background-color: #2E2828;
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 15px 30px;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:active {
+	background-color: white;
 }
 
 /*
@@ -24,10 +81,19 @@ to help you out.
 
 h1 {
 	color: var(--color-primary);
+	text-align: center;
+	padding-top: 50px;
+}
+
+h2 {
+	color: var(--color-primary);
+	text-align: center;
+	padding-top: 20px;
+	font-weight: normal;
 }
 
 /* This uses the same value as --size-xs. */
-@media screen and (width >= 320px) {
+@media screen and (width >=320px) {
 	.content-container {
 		margin: 0 auto;
 		max-width: 768px;
