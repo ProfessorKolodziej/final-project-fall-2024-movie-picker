@@ -10,9 +10,14 @@ primary color variable below.
 	--color-secondary: #2E2828;
 }
 
-body {
+/*body {
 	background: hsla(0, 44%, 57%, 1);
 	background: linear-gradient(90deg, hsla(0, 44%, 57%, 1) 0%, hsla(345, 43%, 54%, 1) 100%);
+}*/
+
+body {
+	background: hsla(0, 35%, 51%, 1);
+	background: linear-gradient(90deg, hsla(0, 35%, 51%, 1) 0%, hsla(345, 43%, 54%, 1) 100%);
 }
 
 /* Navbar Styling */
@@ -33,14 +38,14 @@ body {
 
 .nav-links a {
 	text-decoration: none;
-	color: #2E2828;
+	color: var(--color-primary);
 	font-weight: bold;
 	font-size: 16px;
 }
 
 /* Black line between items */
 .nav-links a:not(:last-child) {
-	border-right: 1.5px solid #2E2828;
+	border-right: 1.5px solid var(--color-primary);
 	padding-right: 10px;
 }
 
@@ -52,7 +57,7 @@ body {
 button {
 	display: block;
 	margin: 30px auto;
-	background-color: #2E2828;
+	background-color: var(--color-primary);
 	color: white;
 	font-size: 18px;
 	font-weight: bold;
@@ -98,4 +103,58 @@ h2 {
 		margin: 0 auto;
 		max-width: 768px;
 	}
+}
+
+/* Page Visibility Handling */
+.page {
+	display: none;
+	/* All pages are hidden by default */
+}
+
+.page.active {
+	display: block;
+	/* Only the active page is visible */
+}
+
+/* Question Container Styling */
+#question-container h2 {
+	color: var(--color-primary);
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#question-container label {
+	display: block;
+	/* Ensures answers are stacked vertically */
+	margin-bottom: 10px;
+	/* Adds spacing between answers */
+	font-size: 16px;
+	/* Adjusts font size for readability */
+	color: var(--color-primary);
+}
+
+#question-container input[type="radio"] {
+	margin-right: 10px;
+	/* Adds spacing between radio button and text */
+}
+
+/* Navigation Buttons Styling */
+.nav-btn {
+	margin-top: 20px;
+	/* Adds space above buttons */
+	background-color: var(--color-secondary);
+	color: white;
+	font-size: 16px;
+	/* Adjusts font size for buttons */
+	padding: 10px 20px;
+	/* Adds padding to buttons */
+	border-radius: 5px;
+	/* Rounds button edges slightly */
+	cursor: pointer;
+	/* Changes cursor to pointer on hover */
+	border: none;
+}
+
+.nav-btn:hover {
+	transform: scale (1.05) background-color:white;
 }

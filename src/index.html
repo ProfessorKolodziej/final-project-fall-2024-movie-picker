@@ -21,13 +21,34 @@
 		</nav>
 	</header>
 
-	<main class="content-container">
-		<h1>Can’t Pick a Movie? We Got You!</h1>
-		<h2>Answer these 7 questions to discover the top 3 movie picks just for you.</h2>
-	</main>
+	<!-- Start Page -->
+	<div id="start-page" class="page active">
+		<main class="content-container">
+			<h1>Can't Pick a Movie? We Got You!</h1>
+			<h2>Answer these 7 questions to discover the top 3 movie picks just for you.</h2>
+			<!-- Start Quiz Button -->
+			<button id="start-btn">Start Quiz</button>
+		</main>
+	</div>
 
-	<!-- Start Quiz Button -->
-	<button>Start Quiz</button>
+	<!-- Quiz Page -->
+	<div id="quiz-page" class="page">
+		<main class="content-container">
+			<div id="question-container"></div>
+			<button id="prev-btn" class="nav-btn">Previous</button>
+			<button id="next-btn" class="nav-btn">Next</button>
+			<button id="submit-btn" class="nav-btn">Submit</button>
+		</main>
+	</div>
+
+	<!-- Result Page -->
+	<div id="result-page" class="page">
+		<main class="content-container">
+			<h2>Your Movie Picks Are Ready!</h2>
+			<p id="results"></p>
+			<button id="restart-btn">Restart Quiz</button>
+		</main>
+	</div>
 
 	<script src="js/scripts.js"></script> <!--Javascript file linked here-->
 </body>
