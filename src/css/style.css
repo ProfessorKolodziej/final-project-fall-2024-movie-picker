@@ -97,7 +97,6 @@ h2 {
 	font-weight: normal;
 }
 
-/* This uses the same value as --size-xs. */
 @media screen and (width >=320px) {
 	.content-container {
 		margin: 0 auto;
@@ -108,12 +107,10 @@ h2 {
 /* Page Visibility Handling */
 .page {
 	display: none;
-	/* All pages are hidden by default */
 }
 
 .page.active {
 	display: block;
-	/* Only the active page is visible */
 }
 
 /* Question Container Styling */
@@ -125,36 +122,48 @@ h2 {
 
 #question-container label {
 	display: block;
-	/* Ensures answers are stacked vertically */
 	margin-bottom: 10px;
-	/* Adds spacing between answers */
 	font-size: 16px;
-	/* Adjusts font size for readability */
 	color: var(--color-primary);
 }
 
 #question-container input[type="radio"] {
 	margin-right: 10px;
-	/* Adds spacing between radio button and text */
 }
 
 /* Navigation Buttons Styling */
 .nav-btn {
 	margin-top: 20px;
-	/* Adds space above buttons */
 	background-color: var(--color-secondary);
 	color: white;
 	font-size: 16px;
-	/* Adjusts font size for buttons */
 	padding: 10px 20px;
-	/* Adds padding to buttons */
 	border-radius: 5px;
-	/* Rounds button edges slightly */
 	cursor: pointer;
-	/* Changes cursor to pointer on hover */
 	border: none;
 }
 
 .nav-btn:hover {
 	transform: scale (1.05) background-color:white;
+}
+
+/* Images for Question 1 */
+.option-img {
+	display: block;
+	width: 80px;
+	height: auto;
+	margin: 10px auto;
+	border-radius: 0;
+	transition: transform 0.3s ease;
+}
+
+label.answer-option {
+	display: inline-block;
+	text-align: center;
+	margin: 10px;
+	cursor: pointer;
+}
+
+label.answer-option:hover .option-img {
+	transform: scale(1.1);
 }

@@ -33,31 +33,60 @@ document.addEventListener("DOMContentLoaded", () => {
 	const questions = [
 		{
 			question: "What mood are you in today?",
-			answers: ["1. Happy", "2. Neutral", "3. Sad"],
+			answers: [
+				{ text: "1. Happy", image: "images/happy.png" },
+				{ text: "2. Neutral", image: "images/neutral.png" },
+				{ text: "3. Sad", image: "images/sad.png" },
+			]
 		},
 		{
 			question: "Do you prefer live-action or animated movies?",
-			answers: ["1. Live-action", "2. Animated"],
+			answers: [
+				{ text: "1. Live-action", image: "images/captainamericaposter.jpg" },
+				{ text: "2. Animated", image: "images/paddingtonposter.jpg" },
+			]
 		},
 		{
 			question: "How much time do you have?",
-			answers: ["1. Under 90 minutes", "2. 90-120 minutes", "3. Over 120 minutes"],
+			answers: [
+				{ text: "1. Under 90 minutes", image: "images/hourglass.png" },
+				{ text: "2. 90-120 minutes", image: "images/clock.png" },
+				{ text: "3. Over 120 minutes", image: "images/timer.png" },
+			]
 		},
 		{
 			question: "Are you watching alone or with others?",
-			answers: ["1. Solo", "2. With friends", "3. Family-friendly pick"],
+			answers: [
+				{ text: "1. Solo", image: "images/single.png" },
+				{ text: "2. With friends", image: "images/friends.png" },
+				{ text: "3. Family-friendly pick", image: "images/family.png" },
+			]
 		},
 		{
 			question: "Do you prefer a classic film or something modern?",
-			answers: ["1. Classic (Pre-2000s)", "2. Modern (2000s & beyond)", "3. No preference"],
+			answers: [
+				{ text: "1. Classic (Pre-2000s)", image: "images/reel.png" },
+				{ text: "2. Modern (2000s & beyond)", image: "images/popcorn.png" },
+				{ text: "3. No preference", image: "images/film.png" },
+			]
 		},
 		{
 			question: "What kind of vibe do you want?",
-			answers: ["1. Feel-good & uplifting", "2. Emotional & deep", "3. Light & funny", "4. Mind-blowing & intense", "5. Thrilling & suspenseful"],
+			answers: [
+				{ text: "1. Feel-good & uplifting", image: "images/star.png" },
+				{ text: "2. Emotional & deep", image: "images/sad2.png" },
+				{ text: "3. Light & funny", image: "images/funny.png" },
+				{ text: "4. Mind-blowing & intense", image: "images/mindblowing.png" },
+				{ text: "5. Thrilling & suspenseful", image: "images/stunning.png" },
+			]
 		},
 		{
 			question: "Do you want something highly rated or a hidden gem?",
-			answers: ["1. Critically acclaimed", "2. Hidden gem", "3. Surprise me!"],
+			answers: [
+				{ text: "1. Critically acclaimed", image: "images/star2.png" },
+				{ text: "2. Hidden gem", image: "images/diamond.png" },
+				{ text: "3. Surprise me!", image: "images/dice.png" },
+			]
 		}
 	];
 
@@ -113,9 +142,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		 <h2>Question ${currentQuestionIndex + 1} of ${questions.length}</h2>
 		 <h3>${question.question}</h3>
 		 ${question.answers.map((answer, index) => `
-			<label>
-    			<input type="radio" name="answer" value="${index + 1}" ${userAnswers[currentQuestionIndex] == index + 1 ? "checked" : ""}>
-			  ${answer}
+			<label class="answer-option">
+			  <input type="radio" name="answer" value="${index + 1}" ${userAnswers[currentQuestionIndex] == index + 1 ? "checked" : ""}>
+			  ${answer.image ? `<img src="${answer.image}" alt="${answer.text}" class="option-img">` : ""}
+			  ${answer.text}
 			</label><br>
 		 `).join("")}
 	  `;
