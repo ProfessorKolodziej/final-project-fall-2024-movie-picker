@@ -144,10 +144,10 @@ h2 {
 }
 
 .nav-btn:hover {
-	transform: scale (1.05) background-color:white;
+	transform: scale (1.05) background-color: white;
 }
 
-/* Images for Question 1 */
+/* Images for Questions */
 .option-img {
 	display: block;
 	width: 80px;
@@ -166,4 +166,70 @@ label.answer-option {
 
 label.answer-option:hover .option-img {
 	transform: scale(1.1);
+}
+
+/* Poster Sizes */
+.poster-img {
+	width: 200px;
+	height: auto;
+	border-radius: 10px;
+	display: block;
+	margin: 10px auto;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.movie-result {
+	text-align: center;
+	margin: 20px 0;
+}
+
+.movie-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 30px;
+	margin: 30px auto;
+	max-width: 1000px;
+}
+
+.movie-card {
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	width: 280px;
+	text-align: center;
+	transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+	transform: translateY(-5px);
+}
+
+.movie-info {
+	font-size: 14px;
+	color: #444;
+	margin-bottom: 10px;
+}
+
+.trailer-btn {
+	background-color: black;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background-color 0.3s ease;
+}
+
+.trailer-btn:hover {
+	background-color: #333;
+}
+
+.retry-text {
+	text-align: center;
+	font-style: italic;
+	margin-top: 20px;
+	font-size: 14px;
 }

@@ -92,7 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const movieMapping = {
 		1: {
-			"1": ["The Pursuit of Happyness", "Inside Out", "La La Land"],
+			"1": [
+				{ title: "The Pursuit of Happyness", poster: "images/pursuitofhappyness.jpg" },
+				{ title: "Inside Out", poster: "images/insideout.jpg" },
+				{ title: "La La Land", poster: "images/lalaland.jpg" },
+			],
 			"2": ["Forrest Gump", "The Grand Budapest Hotel", "The Secret Life of Walter Mitty"],
 			"3": ["The Shawshank Redemption", "A Beautiful Mind", "Eternal Sunshine of the Spotless Mind"]
 		},
@@ -197,14 +201,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		showPage(pages.result);
 		resultsContainer.innerHTML = `
-		  <h3>Here’s What We Recommend!</h3>
-		  ${uniqueMovies.map(movie => `<p>🎬 ${movie}</p>`).join("")}
-		`;
-	});
+			<h3>Here’s What We Recommend!</h3>
+			<div class="movie-grid">
+				${uniqueMovies.map((movie, i) => {
+			if (typeof movie === "string") {
+				return `
+						<div class="movie-card">
+							<h4>${i + 1}. ${movie}</h4>
+							<div class="poster-placeholder">(Poster image)</div>
+							<p class="movie-info">(short description, genre, and rating)</p>
+							<button class="trailer-btn">Watch Trailer</button>
+						</div>
+					`;
+			} else {
+				return `
+						<div class="movie-card">
+							<h4>${i + 1}. ${movie.title}</h4>
+							<img src="${movie.poster}" alt="${movie.title}" class="poster-img" />
+							<p class="movie-info">(short description, genre, and rating)</p>
+							<button class="trailer-btn">Watch Trailer</button>
+						</div>
+					`;
+			}
+		}).join("")}
+			</div>
+			<p class="retry-text">Didn’t like these options? Try the quiz again <a href="#">here</a>.</p>
+			`;
 
-	restartBtn.addEventListener("click", () => {
-		currentQuestionIndex = 0;
-		userAnswers = [];
-		showPage(pages.start);
+		restartBtn.addEventListener("click", () => {
+			currentQuestionIndex = 0;
+			userAnswers = [];
+			showPage(pages.start);
+		});
 	});
-});
