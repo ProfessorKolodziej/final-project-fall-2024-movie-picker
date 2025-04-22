@@ -6,7 +6,7 @@
 // - Run npm run test regularly to check autograding
 // - You'll need to link this file to your HTML :)
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 	// Page elements
 	const pages = {
 		start: document.getElementById("start-page"),
@@ -93,43 +93,145 @@ document.addEventListener("DOMContentLoaded", () => {
 	const movieMapping = {
 		1: {
 			"1": [
-				{ title: "The Pursuit of Happyness", poster: "images/pursuitofhappyness.jpg" },
-				{ title: "Inside Out", poster: "images/insideout.jpg" },
-				{ title: "La La Land", poster: "images/lalaland.jpg" },
+				{
+					title: "The Pursuit of Happyness",
+					poster: "images/pursuitofhappyness.jpg",
+					genre: "Family/Drama",
+					description: "A struggling salesman takes custody of his son as he's poised to begin a life-changing professional career.",
+					trailer: "https://youtu.be/DMOBlEcRuw8?si=PsUPDJT92DzCVDLr",
+				},
+				{
+					title: "Inside Out",
+					poster: "images/insideout.jpg",
+					genre: "Family/Comedy",
+					description: "After young Riley is uprooted from her Midwest life and moved to San Francisco, her emotions - Joy, Fear, Anger, Disgust and Sadness - conflict on how best to navigate a new city, house, and school.",
+					trailer: "https://youtu.be/yRUAzGQ3nSY?si=84_b0xo4ET2tpW3U",
+				},
+				{
+					title: "La La Land",
+					poster: "images/lalaland.jpg",
+					genre: "Musical/Romance",
+					description: "When Sebastian, a pianist, and Mia, an actress, follow their passion and achieve success in their respective fields, they find themselves torn between their love for each other and their careers.",
+					trailer: "https://youtu.be/0pdqf4P9MB8?si=3KMeXJk8xUGAOl3g",
+				},
 			],
-			"2": ["Forrest Gump", "The Grand Budapest Hotel", "The Secret Life of Walter Mitty"],
-			"3": ["The Shawshank Redemption", "A Beautiful Mind", "Eternal Sunshine of the Spotless Mind"]
+			"2": [
+				{ title: "Forrest Gump", poster: "images/forrestgump.jpg" },
+				{ title: "About Time", poster: "images/abouttime.jpg" },
+				{ title: "The Peanut Butter Falcon", poster: "images/peanutbutterfalcon.jpg" },
+			],
+			"3": [
+				{ title: "The Shawshank Redemption", poster: "images/shawshank.jpg" },
+				{ title: "Aftersun", poster: "images/aftersun.jpg" },
+				{ title: "Eternal Sunshine of the Spotless Mind", poster: "images/eternal.jpg" },
+			],
 		},
 		2: {
-			"1": ["Inception", "The Dark Knight", "Interstellar"],
-			"2": ["Toy Story", "Spirited Away", "Coco"]
+			"1": [
+				{ title: "Inception", poster: "images/inception.jpg" },
+				{ title: "The Dark Knight", poster: "images/darkknight.jpg" },
+				{ title: "1917", poster: "images/1917.jpg" },
+			],
+			"2": [
+				{ title: "Toy Story", poster: "images/toystory.jpg" },
+				{ title: "Spirited Away", poster: "images/spiritedaway.jpg" },
+				{ title: "Coco", poster: "images/coco.jpg" },
+			],
 		},
 		3: {
-			"1": ["Zombieland", "The Lion King", "The Social Network"],
-			"2": ["The Godfather", "The Matrix", "The Avengers"],
-			"3": ["The Lord of the Rings", "Schindler's List", "Gone with the Wind"]
+			"1": [
+				{ title: "Zombieland", poster: "images/zombieland.jpg" },
+				{ title: "The Lion King", poster: "images/lionking.jpg" },
+				{ title: "The Mitchells vs. the Machines", poster: "images/mitchellsvmachines.jpg" },
+			],
+			"2": [
+				{ title: "Arrival", poster: "images/arrival.jpg" },
+				{ title: "A Quiet Place", poster: "images/quietplace.jpg" },
+				{ title: "Back to the Future", poster: "images/b2tf.jpg" },
+			],
+			"3": [
+				{ title: "The Lord of the Rings: The Fellowship of the Ring", poster: "images/lotr.jpg" },
+				{ title: "Jurassic Park", poster: "images/jurassicpark.jpg" },
+				{ title: "Gone with the Wind", poster: "images/gonewiththewind.jpg" },
+			],
 		},
 		4: {
-			"1": ["Fight Club", "Her", "The Machinist"],
-			"2": ["Superbad", "The Hangover", "Pitch Perfect"],
-			"3": ["Finding Nemo", "Frozen", "Paddington"]
+			"1": [
+				{ title: "Fight Club", poster: "images/fightclub.jpg" },
+				{ title: "Her", poster: "images/her.jpg" },
+				{ title: "The Machinist", poster: "images/machinist.jpg" },
+			],
+			"2": [
+				{ title: "21 Jump Street", poster: "images/21jumpstreet.jpg" },
+				{ title: "The Hangover", poster: "images/hangover.jpg" },
+				{ title: "Pitch Perfect", poster: "images/pitchperfect.jpg" },
+			],
+			"3": [
+				{ title: "Finding Nemo", poster: "images/findingnemo.jpg" },
+				{ title: "Frozen", poster: "images/frozen.jpg" },
+				{ title: "Paddington", poster: "images/paddington.jpg" },
+			],
 		},
 		5: {
-			"1": ["Casablanca", "Psycho", "12 Angry Men"],
-			"2": ["The Social Network", "Mad Max: Fury Road", "Parasite"],
-			"3": ["The Wizard of Oz", "The Godfather", "The Dark Knight"]
+			"1": [
+				{ title: "Casablanca", poster: "images/casablanca.jpg" },
+				{ title: "Psycho", poster: "images/psycho.jpg" },
+				{ title: "12 Angry Men", poster: "images/12angrymen.jpg" },
+			],
+			"2": [
+				{ title: "The Social Network", poster: "images/socialnetwork.jpg" },
+				{ title: "Mad Max: Fury Road", poster: "images/madmaxfuryroad.jpg" },
+				{ title: "Parasite", poster: "images/parasite.jpg" },
+			],
+			"3": [
+				{ title: "The Wizard of Oz", poster: "images/wizardofoz.jpg" },
+				{ title: "Zodiac", poster: "images/zodiac.jpg" },
+				{ title: "500 Days of Summer", poster: "images/500daysofsummer.jpg" },
+			],
 		},
 		6: {
-			"1": ["The Intouchables", "Amélie", "The Secret Life of Walter Mitty"],
-			"2": ["Schindler's List", "The Green Mile", "A Beautiful Mind"],
-			"3": ["Superbad", "The Grand Budapest Hotel", "Crazy, Stupid, Love"],
-			"4": ["Inception", "The Matrix", "Interstellar"],
-			"5": ["Se7en", "The Silence of the Lambs", "Prisoners"]
+			"1": [
+				{ title: "The Intouchables", poster: "images/intouchables.jpg" },
+				{ title: "Amélie", poster: "images/amelie.jpg" },
+				{ title: "The Secret Life of Walter Mitty", poster: "images/waltermitty.jpg" },
+			],
+			"2": [
+				{ title: "Schindler's List", poster: "images/schindlerslist.jpg" },
+				{ title: "The Green Mile", poster: "images/greenmile.jpg" },
+				{ title: "A Beautiful Mind", poster: "images/abeautifulmind.jpg" },
+			],
+			"3": [
+				{ title: "Superbad", poster: "images/superbad.jpg" },
+				{ title: "The Grand Budapest Hotel", poster: "images/grandbudapest.jpg" },
+				{ title: "Crazy, Stupid, Love", poster: "images/crazystupidlove.jpg" },
+			],
+			"4": [
+				{ title: "Shutter Island", poster: "images/shutterisland.jpg" },
+				{ title: "The Matrix", poster: "images/matrix.jpg" },
+				{ title: "Interstellar", poster: "images/interstellar.jpg" },
+			],
+			"5": [
+				{ title: "Se7en", poster: "images/se7en.jpg" },
+				{ title: "The Silence of the Lambs", poster: "images/silenceofthelambs.jpg" },
+				{ title: "Prisoners", poster: "images/prisoners.jpg" },
+			],
 		},
 		7: {
-			"1": ["The Godfather", "The Shawshank Redemption", "The Dark Knight"],
-			"2": ["Moonlight", "The Florida Project", "The Farewell"],
-			"3": ["Pulp Fiction", "The Big Lebowski", "The Grand Budapest Hotel"]
+			"1": [
+				{ title: "The Godfather", poster: "images/godfather.jpg" },
+				{ title: "All Quiet on the Western Front", poster: "images/allquiet.jpg" },
+				{ title: "Citizen Kane", poster: "images/citizenkane.jpg" },
+			],
+			"2": [
+				{ title: "Moonlight", poster: "images/moonlight.jpg" },
+				{ title: "The Florida Project", poster: "images/floridaproject.jpg" },
+				{ title: "The Farewell", poster: "images/farewell.jpg" },
+			],
+			"3": [
+				{ title: "Pulp Fiction", poster: "images/pulpfiction.jpg" },
+				{ title: "The Big Lebowski", poster: "images/biglebowski.jpg" },
+				{ title: "Muriel's Wedding", poster: "images/murielswedding.jpg" },
+			],
 		}
 	};
 
@@ -201,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		showPage(pages.result);
 		resultsContainer.innerHTML = `
-			<h3>Here’s What We Recommend!</h3>
+			<h3>Here's What We Recommend!</h3>
 			<div class="movie-grid">
 				${uniqueMovies.map((movie, i) => {
 			if (typeof movie === "string") {
@@ -225,12 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		}).join("")}
 			</div>
-			<p class="retry-text">Didn’t like these options? Try the quiz again <a href="#">here</a>.</p>
+			<p class="retry-text">Didn't like these options? Try the quiz again <a href="#">here</a>.</p>
 			`;
 
 		restartBtn.addEventListener("click", () => {
-			currentQuestionIndex = 0;
-			userAnswers = [];
-			showPage(pages.start);
-		});
-	});

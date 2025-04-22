@@ -144,7 +144,8 @@ h2 {
 }
 
 .nav-btn:hover {
-	transform: scale (1.05) background-color: white;
+	transform: scale (1.05);
+	background-color: white;
 }
 
 /* Images for Questions */
