@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="Movie Picker" content="Find the perfect movie for your movie night!" />
+	<title>Movie Picker</title>
+	<link href="css/style.css" rel="stylesheet"> <!--CSS file linked here-->
+</head>
+
+<body>
+	<!-- Navigation Bar -->
+	<header class="navbar">
+		<div class="navbar-container">
+			<div class="nav-left">
+				<a href="index.html">Movie Picker</a>
+				<a href="funfacts.html">Fun Facts</a>
+			</div>
+			<div class="menu-icon" id="menu-toggle">☰</div>
+		</div>
+		<div class="nav-links" id="nav-links">
+			<a href="index.html">Movie Picker</a>
+			<a href="funfacts.html">Fun Facts</a>
+		</div>
+	</header>
+
+
+	<main class="content-container">
+		<!-- Start Page -->
+		<div id="start-page" class="page active">
+			<h1>Can't Pick a Movie? We Got You!</h1>
+			<h4>Answer these 7 questions to discover the top 3 movie picks just for you.</h4>
+			<!-- Start Quiz Button -->
+			<button id="start-btn">Start Quiz</button>
+		</div>
+
+		<!-- Transition Poster Page -->
+		<div id="transition-page" class="page">
+			<div id="poster-gallery" class="movie-grid">
+				<div class="movie-card"><img src="images/machinist.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/coco.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/silenceofthelambs.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/timer.png" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/pulpfiction.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/quietplace.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/toystory.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/wizardofoz.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/hangover.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/casablanca.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/500daysofsummer.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/zombieland.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/12angrymen.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/aftersun.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/arrival.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/captainamericaposter.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/crazystupidlove.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/1917.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/21jumpstreet.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/matrix.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/her.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/madmaxfuryroad.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/waltermitty.jpg" class="poster-img" /></div>
+				<div class="movie-card"><img src="images/moonlight.jpg" class="poster-img" /></div>
+			</div>
+		</div>
+
+		<!-- Quiz Page -->
+		<div id="quiz-page" class="page">
+			<h2 id="question-number" class="question-title"></h2>
+			<div id="progress-bar"></div>
+			<div id="question-container"></div>
+			<div class="nav-btn-group">
+				<button id="prev-btn" class="nav-btn">← Previous</button>
+				<button id="next-btn" class="nav-btn">Next →</button>
+				<button id="submit-btn" class="nav-btn">✔ Submit</button>
+			</div>
+		</div>
+
+		<!-- Result Page -->
+		<div id="result-page" class="page">
+			<h2>Your Movie Picks Are Ready!</h2>
+			<h3>Here's What We Recommend:</h3>
+			<p id="results"></p>
+		</div>
+	</main>
+
+	<script src="js/scripts.js"></script> <!--Javascript file linked here-->
+</body>
+
+</html>
