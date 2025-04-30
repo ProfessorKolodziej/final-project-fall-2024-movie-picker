@@ -17,13 +17,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Hamburger menu toggle
 	const menuIcon = document.querySelector(".menu-icon");
-	const navLinks = document.getElementById("mobile-menu");
+	const navLinks = document.getElementById("nav-links");
 
-	function toggleMenu() {
-		navLinks.classList.toggle("show");
+	if (menuIcon && navLinks) {
+		menuIcon.addEventListener("click", () => {
+			navLinks.classList.toggle("show");
+		});
+
+		const navItems = document.querySelectorAll("#nav-links a");
+		navItems.forEach(item => item.addEventListener("click", () => {
+			navLinks.classList.remove("show");
+		}));
+
 	}
-
-	menuIcon.addEventListener("click", toggleMenu);
 
 	// Buttons
 	const startBtn = document.getElementById("start-btn");

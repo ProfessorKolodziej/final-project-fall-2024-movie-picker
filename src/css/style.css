@@ -24,16 +24,59 @@ body {
 .navbar {
 	background-color: #CDB450;
 	color: #2E2828;
+	padding: 15px 20px;
+	position: relative;
+}
+
+.navbar-container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 15px 20px;
+	width: 100%;
+	flex-direction: row-reverse;
 }
 
-/* Navigation links */
+.nav-left a {
+	margin-right: 15px;
+	text-decoration: none;
+	color: var(--color-primary);
+	font-weight: bold;
+	font-size: 16px;
+	border-right: 1.5px solid var(--color-primary);
+	padding-right: 10px;
+}
+
+.nav-left a:first-child {
+	margin-left: 0;
+}
+
+.nav-left a:last-child {
+	border-right: none;
+}
+
+.menu-icon {
+	display: none;
+	cursor: pointer;
+	font-size: 24px;
+	padding: 10px;
+}
+
+/* The dropdown nav menu for mobile */
 .nav-links {
+	display: none;
+	flex-direction: column;
+	background-color: #CDB450;
+	padding: 10px;
+	position: absolute;
+	top: 60px;
+	left: 15px;
+	z-index: 1000;
+	border-radius: 5px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links.show {
 	display: flex;
-	gap: 10px;
 }
 
 .nav-links a {
@@ -41,17 +84,19 @@ body {
 	color: var(--color-primary);
 	font-weight: bold;
 	font-size: 16px;
+	margin: 5px 0;
 }
 
-/* Black line between items */
-.nav-links a:not(:last-child) {
-	border-right: 1.5px solid var(--color-primary);
-	padding-right: 10px;
-}
+@media (max-width: 768px) {
+	.menu-icon {
+		display: block;
+	}
 
-.nav-links a:hover {
-	color: white;
-	background-color: transparent;
+	.nav-left {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
 }
 
 button {
@@ -159,7 +204,7 @@ h4 {
 }
 
 .nav-btn:hover {
-	transform: scale (1.05);
+	transform: scale(1.05);
 	background-color: white;
 }
 
@@ -372,34 +417,4 @@ label.answer-option:hover .option-img {
 	border-radius: 8px;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 	font-size: 20px;
-}
-
-/* Hamburger Menu Styling */
-.menu-icon {
-	cursor: pointer;
-	font-size: 24px;
-	padding: 10px;
-}
-
-/* Hide nav links by default on mobile toggle */
-.nav-links {
-	display: none;
-	flex-direction: column;
-	position: absolute;
-	top: 60px;
-	left: 15px;
-	background-color: #CDB450;
-	padding: 10px;
-	border-radius: 5px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-	z-index: 1000;
-}
-
-/* Show nav links when .show is toggled via JS */
-.nav-links.show {
-	display: flex;
-}
-
-.nav-links a {
-	margin: 8px 0;
 }
