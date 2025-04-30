@@ -13,11 +13,10 @@
 <body>
 	<!-- Navigation Bar -->
 	<header class="navbar">
-		<div class="menu-icon" onclick="toggleMenu()">☰</div>
-		<nav class="nav-links">
+		<div class="menu-icon">☰</div>
+		<nav class="nav-links" id="mobile-menu">
 			<a href="index.html">Movie Picker</a>
 			<a href="funfacts.html">Fun Facts</a>
-			<a href="moviegame.html">Movie Game</a>
 		</nav>
 	</header>
 
@@ -31,13 +30,46 @@
 		</main>
 	</div>
 
+	<!-- Transition Poster Page -->
+	<div id="transition-page" class="page">
+		<div id="poster-gallery" class="movie-grid">
+			<div class="movie-card"><img src="images/machinist.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/coco.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/silenceofthelambs.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/timer.png" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/pulpfiction.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/quietplace.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/toystory.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/wizardofoz.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/hangover.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/casablanca.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/500daysofsummer.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/zombieland.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/12angrymen.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/aftersun.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/arrival.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/captainamericaposter.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/crazystupidlove.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/1917.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/21jumpstreet.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/matrix.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/her.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/madmaxfuryroad.jpg" class="poster-img" /></div>
+			<div class="movie-card"><img src="images/waltermitty.jpg" class="poster-img" /></div>
+		</div>
+	</div>
+
 	<!-- Quiz Page -->
 	<div id="quiz-page" class="page">
 		<main class="content-container">
+			<h2 id="question-number" class="question-title"></h2>
+			<div id="progress-bar"></div>
 			<div id="question-container"></div>
-			<button id="prev-btn" class="nav-btn">Previous</button>
-			<button id="next-btn" class="nav-btn">Next</button>
-			<button id="submit-btn" class="nav-btn">Submit</button>
+			<div class="nav-btn-group">
+				<button id="prev-btn" class="nav-btn">← Previous</button>
+				<button id="next-btn" class="nav-btn">Next →</button>
+				<button id="submit-btn" class="nav-btn">✔ Submit</button>
+			</div>
 		</main>
 	</div>
 

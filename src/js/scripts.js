@@ -6,6 +6,7 @@
 // - Run npm run test regularly to check autograding
 // - You'll need to link this file to your HTML :)
 
+
 document.addEventListener("DOMContentLoaded", function () {
 	// Page elements
 	const pages = {
@@ -13,6 +14,16 @@ document.addEventListener("DOMContentLoaded", function () {
 		quiz: document.getElementById("quiz-page"),
 		result: document.getElementById("result-page")
 	};
+
+	// Hamburger menu toggle
+	const menuIcon = document.querySelector(".menu-icon");
+	const navLinks = document.getElementById("mobile-menu");
+
+	function toggleMenu() {
+		navLinks.classList.toggle("show");
+	}
+
+	menuIcon.addEventListener("click", toggleMenu);
 
 	// Buttons
 	const startBtn = document.getElementById("start-btn");
@@ -24,6 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Quiz elements
 	const questionContainer = document.getElementById("question-container");
 	const resultsContainer = document.getElementById("results");
+
+	// Progress bar
+	const progressBar = document.getElementById("progress-bar");
 
 	// Quiz state
 	let currentQuestionIndex = 0;
@@ -622,15 +636,15 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Load current question
 	function loadQuestion() {
 		const question = questions[currentQuestionIndex];
+		document.getElementById("question-number").textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
 		questionContainer.innerHTML = `
-		 <h2>Question ${currentQuestionIndex + 1} of ${questions.length}</h2>
-		 <h3>${question.question}</h3>
-		 ${question.answers.map((answer, index) => `
-			<label class="answer-option">
-			  <input type="radio" name="answer" value="${index + 1}" ${userAnswers[currentQuestionIndex] == index + 1 ? "checked" : ""}>
-			  ${answer.image ? `<img src="${answer.image}" alt="${answer.text}" class="option-img">` : ""}
-			  ${answer.text}
-			</label><br>
+			<h3>${question.question}</h3>
+			${question.answers.map((answer, index) => `
+				<label class="answer-option">
+			  		<input type="radio" name="answer" value="${index + 1}" ${userAnswers[currentQuestionIndex] == index + 1 ? "checked" : ""}>
+					<span>${answer.text}</span>
+					${answer.image ? `<img src="${answer.image}" alt="${answer.text}" class="option-img">` : ""}
+				</label><br>
 		 `).join("")}
 	  `;
 
@@ -638,6 +652,14 @@ document.addEventListener("DOMContentLoaded", function () {
 		prevBtn.style.display = currentQuestionIndex === 0 ? "none" : "inline-block";
 		nextBtn.style.display = currentQuestionIndex === questions.length - 1 ? "none" : "inline-block";
 		submitBtn.style.display = currentQuestionIndex === questions.length - 1 ? "inline-block" : "none";
+
+		updateProgressBar();
+
+		const questionEl = document.getElementById("question-container");
+		questionEl.classList.remove("visible");
+		setTimeout(() => {
+			questionEl.classList.add("visible");
+		}, 100);
 	}
 
 	// Save answer
@@ -648,13 +670,41 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	}
 
-	// Event Listeners
+	// Update progress bar
+	function updateProgressBar() {
+		progressBar.innerHTML = "";
+
+		for (let i = 0; i < questions.length; i++) {
+			const step = document.createElement("div");
+			step.classList.add("progress-step");
+			if (i <= currentQuestionIndex) step.classList.add("active");
+			progressBar.appendChild(step);
+		}
+	}
+
+	// Event Listener for Start Quiz with animation
 	startBtn.addEventListener("click", () => {
-		showPage(pages.quiz);
-		loadQuestion();
+		const transitionPage = document.getElementById("transition-page");
+		const posterGallery = document.getElementById("poster-gallery");
+		showPage(transitionPage);
+		transitionPage.classList.add("active");
+		setTimeout(() => {
+			posterGallery.classList.add("flow-up");
+		}, 100);
+		setTimeout(() => {
+			showPage(pages.quiz);
+			document.getElementById("transition-page").style.display = "none";
+			loadQuestion();
+			window.scrollTo(0, 0);
+		}, 5000); // match CSS animation duration & this is the wait time between animation and question load
 	});
 
 	nextBtn.addEventListener("click", () => {
+		const selected = document.querySelector('input[name="answer"]:checked');
+		if (!selected) {
+			alert("Please select an option before continuing.");
+			return;
+		}
 		saveAnswer();
 		currentQuestionIndex++;
 		loadQuestion();
@@ -667,7 +717,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	submitBtn.addEventListener("click", () => {
+		const selected = document.querySelector('input[name="answer"]:checked');
+		if (!selected) {
+			alert("Please select an option before submitting.");
+			return;
+		}
 		saveAnswer();
+
 		const recommendedMovies = [];
 
 		userAnswers.forEach((answer, index) => {
